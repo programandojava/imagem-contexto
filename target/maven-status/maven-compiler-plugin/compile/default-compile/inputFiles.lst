@@ -1,0 +1,9 @@
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/entity/Foto.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/util/FotoUtil.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/util/Util.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/dao/ProdutoDAO.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/controller/ProdutoController.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/entity/Produto.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/controller/FotoController.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/filter/JPAFilter.java
+/home/felipe/Documents/develop-web/workspace/produtos/src/main/java/com/programandojava/controller/UploadController.java

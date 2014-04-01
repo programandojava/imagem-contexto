@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		</f:facet>
+		
+		<title>Cadastro com foto no contexto | ProgramandoJava :)</title>
+		
+		<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/assets/css/style.css" />		
+</h:head>
+
+<h:body>
+	<h:form enctype="multipart/form-data" id="frmProduto">
+		<p:growl showSummary="false" showDetail="true" />
+	
+		<p:panel footer="ProgramandoJava . wordpress.com" header="Cadastro com foto no contexto - Produto" toggleable="true">
+			<h:panelGrid columns="2" cellpadding="2" cellspacing="2">
+				<h:outputLabel for="txtProdutoNome" value="Nome: " style="float: right; font-weight: bold; "/>
+				<p:inputText id="txtProdutoNome" value="#{produtoMB.produto.nome}" size="50" required="true" requiredMessage="Campo [Nome] é obrigatório" />
+				
+				<h:outputLabel for="fuProdutoFoto" value="Foto: " style="float: right; font-weight: bold; " />
+				<p:fileUpload id="fuProdutoFoto" allowTypes="/(\.|\/)(jpe?g|png)$/" cancelLabel="Cancelar"  
+					label="Escolha" invalidFileMessage="Extensão de arquivo não suportada" 
+					invalidSizeMessage="Imagem excedeu o tamanho permitido" mode="advanced" multiple="false"
+					showButtons="true" sizeLimit="2097152" uploadLabel="Enviar" 
+					fileUploadListener="#{uploadMB.handlePictureUploaded}" required="true" requiredMessage="Campo [Foto] é obrigatório" />
+					
+				<p:spacer />
+				<p:commandButton value="Salvar" action="#{produtoMB.salvar()}" icon="ui-icon-circle-plus" update="frmProduto, :frmDt" />
+			</h:panelGrid>
+		</p:panel>	
+	</h:form>
+	
+	<h:form id="frmDt">
+		<p:panel footer="ProgramandoJava . wordpress.com" header="Dados cadastrados" toggleable="true">
+			<p:dataTable id="produtoDT" var="prod" emptyMessage="Nenhum registro encontrado" 
+					stickyHeader="true" value="#{produtoMB.produtos}" style="text-align: center;"
+					paginator="true" rows="5" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+	               	rowsPerPageTemplate="5,10,15">
+						
+				<f:facet name="header">
+					Cadastro de produtos com fotos no contexto	
+				</f:facet>
+					
+				<p:column headerText="Id do produto">	
+					<h:outputText value="#{prod.id}" />
+				</p:column>
+					
+				<p:column headerText="Nome do produto">	
+					<h:outputText value="#{prod.nome}" />
+				</p:column>
+					
+				<p:column headerText="Visualizar foto">	
+					<p:commandButton icon="ui-icon-circle-zoomin" action="#{produtoMB.carregarProduto(prod)}" oncomplete="PF('dlgFoto').show();" update=":dlgFotoId" />
+				</p:column>
+				
+				<f:facet name="footer">
+					programandoJava . wordpress.com	
+				</f:facet>
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+
+	<p:dialog appendTo="@(body)" closable="true" closeOnEscape="true"
+		draggable="true" id="dlgFotoId" modal="true" position="center"
+		resizable="false" widgetVar="dlgFoto" header="Foto do produto">
+
+		<h:form id="forImages">
+			<p:graphicImage value="#{fotoMB.foto}" width="800px" height="400px">
+				<f:param name="fotoNome" value="#{produtoMB.produtoCarregado.foto.name}" />
+			</p:graphicImage>
+		</h:form>
+	</p:dialog>
+</h:body>
+</html>

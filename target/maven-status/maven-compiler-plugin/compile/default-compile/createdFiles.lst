@@ -1,0 +1,9 @@
+com/programandojava/dao/ProdutoDAO.class
+com/programandojava/controller/UploadController.class
+com/programandojava/entity/Produto.class
+com/programandojava/entity/Foto.class
+com/programandojava/controller/ProdutoController.class
+com/programandojava/filter/JPAFilter.class
+com/programandojava/controller/FotoController.class
+com/programandojava/util/FotoUtil.class
+com/programandojava/util/Util.class
