@@ -1,8 +1,8 @@
 programandoJava - Imagem no contexto
 ==============
 
-**Projeto disponilizado no blog *http://programandojava.wordpress.com***.
+**Projeto disponilizado neste endereço *http://programandojava.wordpress.com/2014/03/31/jsf-imagem-no-contexto/***
 
-*Este projeto tem por intuito demonstrar de forma eficiente e rapida como realizar upload e exibir imagens, salvas no diretorio do pc, quando o usuário as requisitão.*
+*O mesmo tem por intuito demonstrar de forma rapida e eficiente a realização de upload e exibição de imagens, salvas no diretorio do pc, quando o usuário as requisita.*
 
 
